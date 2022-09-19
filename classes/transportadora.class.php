@@ -76,10 +76,10 @@
                 $this->nomeTransportadora = $this->objfunc->tratarCaracter($dados['nomeTransportadora'], 1);
                 $this->statusTransportadora = $dados['statusTransportadora'];
 
-                $cst = $this->con->conectar()->prepare("UPDATE transportadora SET 'nomeTransportadora' = :nomeTransportadora, 'statusTransportadora'= :statusTransportadora' WHERE idTansportadora = :idTransp;");
+                $cst = $this->con->conectar()->prepare("UPDATE transportadora SET nomeTransportadora = :nomeTransp, statusTransportadora= :statusTransp WHERE idTransportadora = :idTransp;");
                 $cst->bindParam(":idTransp", $this->idTransportadora, PDO::PARAM_INT);
-                $cst->bindParam(":nomeTransportadora", $this->nomeTransportadora, PDO::PARAM_STR);
-                $cst->bindParam(":statusTransportadora", $this->statusTransportadora, PDO::PARAM_INT);
+                $cst->bindParam(":nomeTransp", $this->nomeTransportadora, PDO::PARAM_STR);
+                $cst->bindParam(":statusTransp", $this->statusTransportadora, PDO::PARAM_INT);
 
                 if($cst->execute()) {
                     return 'ok';
@@ -92,9 +92,9 @@
             }
         }
 
-        public function queryUpdateStatus($dados, $status) {
+        public function queryUpdateStatus($dado, $status) {
             try {
-                $this->idTransportadora = $this->objfunc->base64($dados, 2);
+                $this->idTransportadora = $this->objfunc->base64($dado, 2);
                 $this->statusTransportadora = $status;
 
                 $cst = $this->con->conectar()->prepare("UPDATE transportadora SET statusTransportadora = :statusTransp WHERE idTransportadora = :idTransp;");
@@ -116,7 +116,7 @@
             try{
                 $this->idTransportadora = $this->objfunc->base64($dado, 2);
 
-                $cst = $this->con->conectar()->prepare("DELETE FROM transportadora WHERE idTansportadora = :idTransp;");
+                $cst = $this->con->conectar()->prepare("DELETE FROM transportadora WHERE idTransportadora = :idTransp;");
                 $cst->bindParam(":idTransp", $this->idTransportadora, PDO::PARAM_INT);
 
                 if($cst->execute()) {

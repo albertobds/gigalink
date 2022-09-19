@@ -42,6 +42,26 @@
 				}
 			break;
 
+			case 'editar':
+				if($objTr->queryUpdate($_POST) == 'ok') {
+					echo "<script>location.replace('index.php?m=transportadora&p=listarTransportadoras.php');</script>";	
+					$_SESSION['alertaMensagem'] = "<img src='img/notification/imgCheck.png' class='mensagemErro'><div id='boxAlerta'><h1>TUDO CERTO</h1><span>Informaçòes da transportadora editadas com sucesso</span></div>";
+				} else {
+					$_SESSION['alertaMensagemErro'] = "<img src='img/notification/imgErro.png' class='mensagemErro'><div id='boxAlerta'><h1>ERRO</h1><span>Não foi possível editar as informações  da transportadora</span></div>";
+					echo "<script>history.go(-1);</script>";
+				}
+			break;
+
+			case 'excluir':
+				if($objTr->queryDelete($_GET['idTransportadora']) == 'ok') {
+					echo "<script>location.replace('index.php?m=transportadora&p=listarTransportadoras.php');</script>";	
+					$_SESSION['alertaMensagem'] = "<img src='img/notification/imgCheck.png' class='mensagemErro'><div id='boxAlerta'><h1>TUDO CERTO</h1><span>Transportadora excluída com sucesso</span></div>";
+				} else {
+					$_SESSION['alertaMensagemErro'] = "<img src='img/notification/imgErro.png' class='mensagemErro'><div id='boxAlerta'><h1>ERRO</h1><span>Não foi possível excluir a transportadora</span></div>";
+					echo "<script>history.go(-1);</script>";
+				}
+			break;
+
 		}
 	}
 ?>

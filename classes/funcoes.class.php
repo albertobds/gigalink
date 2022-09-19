@@ -24,7 +24,6 @@ class funcoes {
         switch($tipo){
             case 1: $rst = base64_encode($vlr); break;
             case 2: $rst = base64_decode($vlr); break;
-            case 3: $rst = date("d/m/Y"); break;
         } 
         return $rst;
     }

@@ -1,3 +1,17 @@
+<?php 
+    require_once 'classes/transportadora.class.php';
+
+    $objFc = new funcoes();
+    $objTr = new transportadora();
+
+    $transportadora = $objTr->querySeleciona($_GET['idTransportadora']);
+
+    $idTransportadora = $transportadora['idTransportadora'];
+    $nomeTransportadora = $transportadora['nomeTransportadora'];
+    $statusTransportadora = $transportadora['statusTransportadora'];
+
+
+?>
 <div class="breadcome-area">
     <div class="container-fluid">
         <div class="row">
@@ -14,9 +28,9 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <ul class="breadcome-menu">
-                                <li><a href="#">Transportadoras</a> <span class="bread-slash">/</span>
+                                <li><a href="#">Transportadora</a> <span class="bread-slash">/</span>
                                 </li>
-                                <li><span class="bread-blod">Adicionar transportadora</span>
+                                <li><span class="bread-blod">Editar transportadora</span>
                                 </li>
                             </ul>
                         </div>
@@ -33,7 +47,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="product-payment-inner-st">
                     <ul id="myTabedu1" class="tab-review-design">
-                        <li class="active"><a href="#description">Adicionar transportadora</a></li>
+                        <li class="active"><a href="#description">Editar transportadora <? echo $nomeTransportadora; ?></a></li>
                         <!--<li><a href="#reviews"> Account Information</a></li>
                         <li><a href="#INFORMATION">Social Information</a></li>-->
                     </ul>
@@ -42,17 +56,18 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="review-content-section">
-                                        <form method="post" action="index.php?m=transportadora&p=validarTransportadora.php&a=cadastrar" id="add-department" class="add-department">
+                                        <form method="post" action="index.php?m=transportadora&p=validarTransportadora.php&a=editar" id="add-department" class="add-department">
+                                            <input type="hidden" name="idTransportadora" value="<?=$objFc->base64($idTransportadora, 1)?>">
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="form-group">
-                                                        <input name="nomeTransportadora" type="text" class="form-control" placeholder="Nome da transportadora" required>
+                                                        <input name="nomeTransportadora" value="<?php echo $nomeTransportadora; ?>" type="text" class="form-control" placeholder="Nome da transportadora" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <select name="statusTransportadora" class="form-control">
-                                                            <option value="none" selected="" disabled="">Selecione o status</option>
-                                                            <option value="1">Ativado</option>
-                                                            <option value="0">Desativado</option>
+                                                            <option value="none" disabled="">Selecione o status</option>
+                                                            <option <?php if($statusTransportadora == "1"){ ?>selected=""<?php } ?> value="1">Ativado</option>
+                                                            <option <?php if($statusTransportadora == "0"){ ?>selected=""<?php } ?> value="0">Desativado</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -60,8 +75,7 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="payment-adress">
-                                                        <button type="submit" class="btn btn-primary waves-effect">Cadastrar</button>
-                                                        <button type="reset" class="btn btn-danger waves-effect">Apagar</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect">Editar</button>
                                                     </div>
                                                 </div>
                                             </div>
