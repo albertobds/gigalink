@@ -97,9 +97,9 @@
                 $this->idTransportadora = $this->objfunc->base64($dados, 2);
                 $this->statusTransportadora = $status;
 
-                $cst = $this->con->conectar()->prepare("UPDATE transportadora SET statusTransportadora = :statusTransportadora WHERE idTransportadora = :idTransp;");
+                $cst = $this->con->conectar()->prepare("UPDATE transportadora SET statusTransportadora = :statusTransp WHERE idTransportadora = :idTransp;");
                 $cst->bindParam(":idTransp", $this->idTransportadora, PDO::PARAM_INT);
-                $cst->bindParam(":statusTransportadora", $this->$statusTransportadora, PDO::PARAM_BOOL);
+                $cst->bindParam(":statusTransp", $this->statusTransportadora, PDO::PARAM_BOOL);
 
                 if($cst->execute()) {
                     return 'ok';
