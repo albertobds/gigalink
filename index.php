@@ -242,9 +242,6 @@
     <!-- main JS
 		============================================ -->
     <script src="js/main.js"></script>
-    <!-- tawk chat JS
-		============================================ -->
-    <script src="js/tawk-chat.js"></script>
 	
 		<script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function(){ 
@@ -258,8 +255,6 @@
                 $("#alertaMensagemAlert").hide().empty();
             }, 5000);
         }, false);
-		
-
     </script>		
 		
 </body>
