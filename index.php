@@ -256,6 +256,59 @@
             }, 5000);
         }, false);
     </script>		
+
+    <script text="text/javascript">
+      var btn_add = document.getElementById('addEmail');
+      var box  = document.getElementById('boxEmail');
+
+      var btn_add2 = document.getElementById('addTelefone');
+      var box2  = document.getElementById('boxTelefone');
+
+      btn_add.addEventListener('click', function(){
+        createInput();
+      });
+
+      btn_add2.addEventListener('click', function(){
+        createInput2();
+      });
+
+      function createInput(){
+        var elemento = document.createElement('input');
+        var elemento2 = document.createElement('input');
+        elemento.setAttribute('type', 'text');
+        elemento.setAttribute('class', 'form-control');
+        elemento.setAttribute('placeholder', 'Email do fornecedor');
+
+        elemento2.setAttribute('type', 'text');
+        elemento2.setAttribute('class', 'form-control');
+        elemento2.setAttribute('placeholder', 'Referência do email');
+        elemento2.TextContent = "<br/><br/>";
+
+        box.appendChild(elemento);
+        box.appendChild(elemento2);
+      }
+
+      function createInput2(){
+        var elemento = document.createElement('input');
+        var elemento2 = document.createElement('input');
+        var elemento3 = document.createElement('input');
+        elemento.setAttribute('type', 'text');
+        elemento.setAttribute('class', 'form-control');
+        elemento.setAttribute('placeholder', 'DDD do Telefone');
+
+        elemento2.setAttribute('type', 'text');
+        elemento2.setAttribute('class', 'form-control');
+        elemento2.setAttribute('placeholder', 'Telefone do fornecedor');
+
+        elemento3.setAttribute('type', 'text');
+        elemento3.setAttribute('class', 'form-control');
+        elemento3.setAttribute('placeholder', 'Referência do telefone');
+
+        box2.appendChild(elemento);
+        box2.appendChild(elemento2);
+        box2.appendChild(elemento3);
+      }
+    </script>
 		
 </body>
 

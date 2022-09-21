@@ -19,8 +19,8 @@
 						<span class="mini-click-non">Fornecedores</span>
 					</a>
 					<ul class="submenu-angle" aria-expanded="false">
-						<li><a title="Adicionar categoria" href="index.php?m=categorias&p=adicionarCategorias.php"><span class="mini-sub-pro">Adicionar fornecedor</span></a></li>
-						<li><a title="Listar categorias" href="index.php?m=categorias&p=listarCategorias.php"><span class="mini-sub-pro">Listar fornecedores</span></a></li>
+						<li><a title="Adicionar categoria" href="index.php?m=fornecedor&p=adicionarFornecedor.php"><span class="mini-sub-pro">Adicionar fornecedor</span></a></li>
+						<li><a title="Listar categorias" href="index.php?m=fornecedor&p=listarFornecedores.php"><span class="mini-sub-pro">Listar fornecedores</span></a></li>
 					</ul>
 				</li>
 			
